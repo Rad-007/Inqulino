@@ -76,7 +76,7 @@ def borrow(account_2,amount):
 #print("Borrow")
 
 #borrow()
-
+import pickle
 
 def New_account(name,username,password):
 
@@ -102,12 +102,13 @@ def New_account(name,username,password):
 
 
         
-    with open('account_details.txt', 'a') as convert_file:
+    convert_file=open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'ab') 
 
-        convert_file.write(str(account)+'\n')
+    pickle.dump(account,convert_file)
+    convert_file.close()
         
         
-
+    #print(accountinfo)
     
     return accountinfo
     
@@ -129,6 +130,6 @@ def check_balance(address):
 
 
 
-
+New_account('Aayush Dwivedi','Inq_Aayush','Aayush@2811')
 
 #check_balance('0x8c9e9D99aA384202E250051018D57dA984ec6aC8')

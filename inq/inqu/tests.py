@@ -21,25 +21,42 @@ import json,pickle
 
 def readFile():
 
-    geeky_file = open('account_details.pkl', 'rb')
+    data={}
+    s=''
 
-    dict=pickle.load(geeky_file)
+    geeky_file = open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'rb')
+
+    #dict=pickle.load(geeky_file)
 
 
+    while True:
+        try:
+            s=(pickle.load(geeky_file))
+            x=list(s.keys())[0]
+            
+            data[x]=s
+            
 
+            
+        except EOFError:
+            break
 
     
         
         
     geeky_file.close()
-    print(dict)
+
+    
+    print(data)
+
+    
     username='mkd@345'
 
-    acc=dict[username]['Account_Address']
+    #acc=dict[username]['Account_Address']
 
-    print('acc',acc)
+    #print('acc',acc)
 
-    return(dict)
+    return(data)
 
 
     
@@ -51,7 +68,7 @@ def readFile():
     
 
 
-#readFile()
+readFile()
 
 import requests
 import hashlib
@@ -150,3 +167,8 @@ def upi_pe():
     
 
 #upi_pe()
+
+
+#
+
+

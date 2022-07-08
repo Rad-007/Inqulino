@@ -129,10 +129,10 @@ def profile(request):
 
 
     l=[]
-    acc=dict[username]['Account_Address']
+    acc=dict[username][username]['Account_Address']
 
     balance=check_balance(acc)
-    pri=dict[username]['private_key'].hex()
+    pri=dict[username][username]['private_key'].hex()
 
     for line in f:
 
@@ -159,12 +159,12 @@ def profile(request):
 
                 d['type']='borrow'
                 d['Name']='Inqulino Borrow'
-                d['address']='0x0C47acAF2177A385c899B15fd2E2731ef23be4b3'+'   '
+                d['address']='0x78544be3c56BF29Bd007A26483aD8F746dfC3D41'+'   '
             
             else:
                 d['type']='lend'
                 d['Name']='Inqulino Lend'
-                d['address']='0x8c9e9D99aA384202E250051018D57dA984ec6aC8'
+                d['address']='0x78544be3c56BF29Bd007A26483aD8F746dfC3D41'
 
 
             date=x[3][19:42].replace(',','').split()
@@ -232,9 +232,37 @@ def readFile():
 
 
     
-    geeky_file = open('account_details.pkl', 'rb')
+    data={}
+    s=''
 
-    dict=pickle.load(geeky_file)
+    geeky_file = open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'rb')
+
+    #dict=pickle.load(geeky_file)
+
+
+    while True:
+        try:
+            s=(pickle.load(geeky_file))
+            x=list(s.keys())[0]
+            data[x]=s
+
+            
+        except EOFError:
+            break
+
+    
+        
+        
+    geeky_file.close()
+    #print(data)
+    #username='mkd@345'
+
+    #acc=dict[username]['Account_Address']
+
+    #print('acc',acc)
+
+    return(data)
+
 
 
 
@@ -242,11 +270,7 @@ def readFile():
     
         
         
-    geeky_file.close()
-    #print(dict)
-
-    return(dict)
-  
+    
     
 
 
@@ -275,11 +299,11 @@ def signin(request):
         if password1==password2:
             if User.objects.filter(email=email).exists():
                 messages.info(request,'Email Already Exits')
-                return redirect('signin')
+                return redirect('signin',{'msg':'Email already exists'})
             
             elif User.objects.filter(username=username).exists():
                 messages.info(request,'Username Already Exits')
-                return redirect('signin')
+                return redirect('signin',{'msg':'username already exists'})
             
             else:
                 
@@ -293,7 +317,7 @@ def signin(request):
         
         else:
             #messages.info("Passwords not same")  
-            return redirect ('signin')
+            return redirect ('signin',{'msg':'Password not same'})
     else:
         return render(request,'signup.html',context=price_rate())  
 
@@ -309,7 +333,7 @@ def login(request):
 
         if user is not None:
             auth.login(request,user)
-            return redirect('profile')
+            return redirect('index')
         else:
             return redirect ('login') 
             #messages.info("Incorrect Password")

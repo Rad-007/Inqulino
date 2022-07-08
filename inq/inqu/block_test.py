@@ -14,7 +14,7 @@ def lend(account_1,amount,private_key):
 #Tutorial Code Goes Here..
     
     
-    account_2="0xc806768Ee5F30766BBE3D29f896ac09d121Cb57E"
+    account_2="0x78544be3c56BF29Bd007A26483aD8F746dfC3D41"
     #private_key="fad035698bbcc8e53be4e9f33b8ab2b01c31efea0dd46776f63b94deb1819df5"
     nonce=web3.eth.getTransactionCount(account_1)
     
@@ -45,9 +45,9 @@ def borrow(account_2,amount):
 
 
     
-    account_1="0xd34eFe2bD22237487C51E789e65561dd7e97b9A9"
+    account_1="0x78544be3c56BF29Bd007A26483aD8F746dfC3D41"
     #account_2="0xDdf40da63Bb248d4364F5a942CF3F46B684e6F58"
-    private_key="0x24abc5f4fe893dda0d8ba5ad889a6728fc39725d6219ab58ec0589571343a562"
+    private_key="0x8e44d468ed4d7f3fd1780e05a83c13aa890b50fb82d0d102211a14ffda2cfbe5"
     nonce=web3.eth.getTransactionCount(account_1)
     print(nonce)
 
@@ -102,7 +102,7 @@ def New_account(name,username,password):
     convert_file.close()
         
         
-
+    #print(accountinfo)
     
     return accountinfo
     
