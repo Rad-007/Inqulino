@@ -1,0 +1,2 @@
+{'Name': 'aAYUSH dWIVEDI', 'bank': 'SBI', 'accno': '741852963', 'ifsc': 'ICICI90856', 'upi': '72349@YBL'}
+

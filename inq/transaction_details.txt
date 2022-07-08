@@ -1,0 +1,2 @@
+{'mkd@345': {'type': 'borrow', 'Start_time': datetime.datetime(2022, 6, 24, 14, 44, 30), 'amount':2, transaction id': '0x0201426e0b4dbcd3eb99693d6020ccea091d447f37afcd00d60eb7032f14096c'}}
+{'mkd@345': {'type': 'lend', 'Start_time': datetime.datetime(2022, 6, 29, 17, 11, 32), 'amount':2, 'transaction id': '0x0201426e0b4dbcd3eb99693d6020ccea091d447f37afcd00d60eb7032f14096c'}}

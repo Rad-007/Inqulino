@@ -1,0 +1,2 @@
+{'Soham_123': {'Name': 'Soham Dwivedi', 'username': 'Soham_123', 'Account_Address': '0xc6003Ee79EFFbE0560fB3147399A1896c76a8218', 'private_key': HexBytes('0x0f1fb67560ca2d67efb8b9e805b72d6694e7ba1db9c93233706f9c6e85532cc9'), 'password': '789456'}}
+{'Soham@123': {'Name': 'Soham Dwivedi', 'username': 'Soham@123', 'Account_Address': '0x8c9e9D99aA384202E250051018D57dA984ec6aC8', 'private_key': HexBytes('0xf46f99afd7e5ea4473139315bfd029127a22e8d5a94b3dd94c7c2ee3b65a47ce'), 'password': '789456'}}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Omnifood is a premiun food delivery service and keeps you healthy"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+    <meta
+      name="goggle-signin-client_id"
+      content="1068863860478-7i2n1qbfut3ake7b5cdblar3t589u8td.apps.googleusercontent.com"
+    />
+
+    <title>Inqülino</title>
+  </head>
+
+  <div class="row">
+    <img src="img.png" alt="Inq logo" class="logo" />
+  </div>
+
+  <body>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div data="name"></div>
+
+    <div class="cotn_principal">
+      <div class="cont_centrar">
+        <div class="cont_login">
+          <div class="cont_info_log_sign_up">
+            <div class="col_md_login">
+              <div class="cont_ba_opcitiy">
+                <h2>LOGIN</h2>
+                <p>Login with credentials</p>
+                <button class="btn_login" onclick="cambiar_login()">
+                  LOGIN
+                </button>
+              </div>
+            </div>
+            <div class="col_md_sign_up">
+              <div class="cont_ba_opcitiy">
+                <h2>SIGN UP</h2>
+
+                <p>Welcome to Inqülino</p>
+
+                <button class="btn_sign_up" onclick="cambiar_sign_up()">
+                  SIGN UP
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cont_back_info">
+            <div class="cont_img_back_grey">
+              <img
+                src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="cont_forms">
+            <div class="cont_img_back_">
+              <img
+                src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d"
+                alt=""
+              />
+            </div>
+            <div class="cont_form_login">
+              <a href="#" onclick="ocultar_login_sign_up()"
+                ><i class="material-icons">&#xE5C4;</i></a
+              >
+              <h2>LOGIN</h2>
+              <style>
+                h5 {
+                  color: red;
+                }
+              </style>
+              {% for message in messages %}
+
+              <h5>{{message}}</h5>
+              {% endfor %}
+
+              <form method="POST" action="login">
+                {% csrf_token %}
+                <input type="text" placeholder="Username" name="username" />
+                <input type="password" placeholder="Password" name="password" />
+                <button class="btn_login" onclick="cambiar_login()">
+                  LOGIN
+                </button>
+              </form>
+            </div>
+
+            <div class="cont_form_sign_up">
+              <a href="#" onclick="ocultar_login_sign_up()"
+                ><i class="material-icons">&#xE5C4;</i></a
+              >
+              <h2>SIGN UP</h2>
+              <style>
+                h5 {
+                  color: red;
+                }
+              </style>
+              {% for message in messages %}
+
+              <h5>{{message}}</h5>
+              {% endfor %}
+
+              <form method="POST" action="signin">
+                {% csrf_token %}
+
+                <input type="text" placeholder="Email" name="email" />
+                <input type="text" placeholder="Username" name="username" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password1"
+                />
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  name="password2"
+                />
+                <button class="btn_sign_up" onclick="cambiar_sign_up()">
+                  SIGN UP
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'index.js' %}"></script>
+  </body>
+</html>

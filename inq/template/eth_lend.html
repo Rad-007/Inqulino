@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+
+<head>
+
+    <title>Inqülino</title>
+
+    <link rel="stylesheet" href="{% static 'css/eth_borrow.css' %}">
+
+
+</head>
+
+
+    <h1 style="color:red;" >{{msg}}</h1>    
+
+
+<div class="login-box">
+    <h2>Eth Lend</h2>
+    
+    <form id="eth_l" method="POST" action="eth_lend" >
+        {% csrf_token %}
+
+       <div class="user-box">
+            <input type="text" name="username"   required="">
+            <label>Username</label>
+          </div>
+
+        <div class="user-box">
+            <input type="text" name="amount"   required="">
+            <label>Amount</label>
+          </div>
+      <div class="user-box">
+        
+        <label>Payment Method:</label>
+        <br><br>
+
+        <select id="method" name="method">
+        <option value="Daily">Daily</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Quaterly">Quaterly</option>
+        <option value="Half-Yearly">Half-Yearly</option>
+        <option value="Yearly">Yearly</option>
+    </select>
+    <br><br>
+
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required="">
+        <label>Password</label>
+      </div>
+      <br><br>
+      <div class="user-box">
+        <input type="TEXT" name="account_address" required="">
+        <label>Account Address</label>
+      </div>
+      <br><br>
+      <div class="user-box">
+        <input type="TEXT" name="private_key" required="">
+        <label>Private Key</label>
+      </div>
+      
+
+
+     <a href="#"  onclick="document.getElementById('eth_l').submit()">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Lend
+
+
+     </a>
+     
+     
+    </form>
+  </div>
+  

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+
+<head>
+
+    <title>Inqülino</title>
+
+    <link rel="stylesheet" href="{% static 'css/eth_borrow.css' %}">
+
+
+</head>
+
+
+
+<div class="login-box">
+    <h2>Eth Loan</h2>
+    <form id="eth_b" method="POST" action="eth_borrow" >
+        {% csrf_token %}
+
+        <div class="user-box">
+            <input type="text" name="username" required="">
+            <label>Username</label>
+          </div>
+      <div class="user-box">
+        <input type="text" name="address" required="">
+        <label>Account Address</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required="">
+        <label>Password</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="amount" required="">
+        <label>Eth Amount</label>
+      </div>
+
+
+     <a href="#"  onclick="document.getElementById('eth_b').submit()">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Borrow
+
+
+     </a>
+     
+      
+    </form>
+  </div>
