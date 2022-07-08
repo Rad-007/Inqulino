@@ -2,7 +2,7 @@
 
 from web3 import Web3
 
-ganache_url="http://192.168.29.185:7545"
+ganache_url="https://mainnet.infura.io/v3/18e88789520c4258a7d6b942a55588ad"
 web3=Web3(Web3.HTTPProvider(ganache_url))
 
 
