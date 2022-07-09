@@ -1,12 +1,12 @@
 
 
 
-from ast import arg
+#from ast import arg
 from . block_test import *
 
 import datetime,time
-from apscheduler.schedulers.background import BackgroundScheduler
-import schedule
+#from apscheduler.schedulers.background import BackgroundScheduler
+#import schedule
 import threading
 def subscribe(address,type_m,amount,private_key):
 

@@ -102,7 +102,7 @@ def New_account(name,username,password):
 
 
         
-    convert_file=open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'ab') 
+    convert_file=open('account_details.pkl', 'ab') 
 
     pickle.dump(account,convert_file)
     convert_file.close()

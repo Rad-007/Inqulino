@@ -24,7 +24,7 @@ def readFile():
     data={}
     s=''
 
-    geeky_file = open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'rb')
+    geeky_file = open('account_details.pkl', 'rb')
 
     #dict=pickle.load(geeky_file)
 

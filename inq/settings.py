@@ -19,7 +19,7 @@ import dj_database_url
 #from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR =  os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-ss@p#nm(uco180a3w%lz^2urbj(22o$r171k_++@*#msb$a$y7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','']
+ALLOWED_HOSTS = ['*','inqulino.com','inqülino.com']
 
 
 # Application definition

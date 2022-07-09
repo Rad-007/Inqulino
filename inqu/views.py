@@ -65,47 +65,47 @@ def index (request):
 
     
     
-    return render(request,'index.html',context=price_rate())
+    return render(request,'template/index.html',context=price_rate())
 
 
 def pricing (request):
     
 
-    return render(request,'pricing.html',context=price_rate())
+    return render(request,'template/pricing.html',context=price_rate())
 
 
 def faq (request):
     
 
-    return render(request,'faq.html',context=price_rate())
+    return render(request,'template/faq.html',context=price_rate())
 
 
 def blog (request):
     
 
-    return render(request,'blog.html',context=price_rate())
+    return render(request,'template/blog.html',context=price_rate())
 
 def error (request):
     
 
-    return render(request,'404.html')
+    return render(request,'template/404.html')
 
 
 def pay (request):
     
 
-    return render(request,'pay.html')
+    return render(request,'template/pay.html')
 
 
 def team (request):
     
 
-    return render(request,'team.html',context=price_rate())
+    return render(request,'template/team.html',context=price_rate())
 
 def charts (request):
     
 
-    return render(request,'charts.html',context=price_rate())
+    return render(request,'template/charts.html',context=price_rate())
 
 
 
@@ -204,7 +204,7 @@ def profile(request):
 
 
 
-    return render(request,'profile.html',{"context":context})
+    return render(request,'template/profile.html',{"context":context})
          
 
 
@@ -235,7 +235,7 @@ def readFile():
     data={}
     s=''
 
-    geeky_file = open('C:/Users/dell/OneDrive/Project/Inq/website/inq/account_details.pkl', 'rb')
+    geeky_file = open('account_details.pkl', 'rb')
 
     #dict=pickle.load(geeky_file)
 
@@ -319,7 +319,7 @@ def signin(request):
             #messages.info("Passwords not same")  
             return redirect ('signin',{'msg':'Password not same'})
     else:
-        return render(request,'signup.html',context=price_rate())  
+        return render(request,'template/signup.html',context=price_rate())  
 
 
 def login(request):
@@ -342,7 +342,7 @@ def login(request):
         
     else:
 
-        return render(request,'login.html',context=price_rate())
+        return render(request,'template/login.html',context=price_rate())
 
 
 
@@ -402,7 +402,7 @@ def eth_borrow(request):
 
     else:
 
-        return render(request,'eth_borrow.html')
+        return render(request,'template/eth_borrow.html')
 
 
 
@@ -499,7 +499,7 @@ def eth_lend(request):
 
     else:
 
-            return render(request,'eth_lend.html')
+            return render(request,'template/eth_lend.html')
 
         
 
@@ -515,7 +515,7 @@ def logout(request):
     return redirect('/')
 
 def post(request,pk):
-    return render (request,'post.html',{'pk':pk})
+    return render (request,'template/post.html',{'pk':pk})
 
 
 def contact(request):
@@ -586,7 +586,7 @@ def borrow(request):
             return redirect ('borrow')
     
     else:
-        return render(request,'borrow.html',context=price_rate())
+        return render(request,'template/borrow.html',context=price_rate())
         
 
 
@@ -633,7 +633,7 @@ def lend(request):
             return redirect ('lend')
     
     else:
-        return render(request,'lend.html',context=price_rate())
+        return render(request,'template/lend.html',context=price_rate())
 
 
 
@@ -652,10 +652,10 @@ def phonepe(request):
     response = requests.request("POST", url, headers=headers)
 
     print(response.text)
-    return render(request,'pay.html')
+    return render(request,'template/pay.html')
 
 
-
+import razorpay
 def razorclient(request):
 
     if request.method=='POST':
@@ -714,7 +714,7 @@ def create_checkout_session(request):
                 mode='subscription',
                 success_url=YOUR_DOMAIN +
                 '/success.html?session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=YOUR_DOMAIN + '/cancel.html'
+                cancel_url=YOUR_DOMAIN + 'template/cancel.html'
             )
             return redirect(checkout_session.url, code=303)
         except Exception as e:
@@ -865,7 +865,7 @@ from django.views import View
 
 
 class LandingPageView(TemplateView):
-    template_name="landing.html"
+    template_name="template/landing.html"
 
 
 def get_context_data(self, **kwargs:Any): # new
