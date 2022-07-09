@@ -21,8 +21,6 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#STATIC_ROOT=BASE_DIR/'staticfiles'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -31,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ss@p#nm(uco180a3w%lz^2urbj(22o$r171k_++@*#msb$a$y7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','inqulino.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1:8000','']
 
 
 # Application definition
@@ -137,17 +135,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
 MEDIA_URL='/file/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'file')
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
-if DEBUG:
-    STATICFILES_DIRS=[(os.path.join(BASE_DIR,'static'),)]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR,'static')
-
-
-STATICFILES_STORAGE='whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
